@@ -21,7 +21,7 @@ JOBS = [{
   'id': 4,
   'title': 'Backend Engineer',
   'location': 'Remote, Denmark',
-  'salary': '44,546 DKK'
+  'salary': '44,550 DKK'
 }, {
   'id': 4,
   'title': 'Data Scientist',

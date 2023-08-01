@@ -1,5 +1,5 @@
 # import Flask class from flask module
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 from database import load_jobs_from_db, load_job_from_db
 
 # app is an object of the Flask class. Importing functionality from the module
@@ -31,6 +31,21 @@ def view_job(id):
   if not job:
     return "Not found", 404
   return render_template('jobpage.html', job=job)
+
+
+# get the input from the URL after form submission
+# the POST method post the data to the URL
+@app.route("/job/<id>/apply", methods=['post'])
+def apply_to_job(id):
+  data = request.form
+  job = load_job_from_db(id)
+  # store this data into DB
+  # send email
+  # display acknolwedgement
+  # pass the application as the data received in the POST method from the form
+  return render_template('application_submitted.html',
+                         application=data,
+                         job=job)
 
 
 ### for testing only

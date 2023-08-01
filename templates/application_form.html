@@ -1,0 +1,33 @@
+<div class="border-bottom pb-2">
+  {% include 'bootstrap.html' %}
+  <form id="appform" style="display: none;" action="/job/{{job['id']}}/apply" method="POST">
+    <h4 class="mb-3">Application Form</h4>
+    <div class="mb-2 input-group">
+      <span class="input-group-text">Full Name</span>
+      <input class="form-control" type="text" name="full_name" placeholder="Bruce Wayne">
+    </div>
+    <div class="mb-2 input-group">
+      <span class="input-group-text">Email Address</span>
+      <input class="form-control" type="text" name="email_id" placeholder="bruce.wayne@mail.com">
+    </div>
+    <div class="mb-2 input-group">
+      <span class="input-group-text">Linkedin URL</span>
+      <input class="form-control" type="text" name="linkedin" placeholder="linkedin.com/in/brucewayne">
+    </div>
+    <div class="mb-2 input-group">
+     <span class="input-group-text">Education</span>
+     <textarea class="form-control" name="education_info"></textarea>
+    </div>
+    <div class="mb-2 mt-2 input-group">
+      <span class="input-group-text">Work Experience</span>
+      <textarea class="form-control" name="work_experience"></textarea>
+    </div>
+    <div class="mb-2 input-group">
+      <span class="input-group-text">Resume URL</span>
+      <input class="form-control" type="text" name="resume_url" placeholder="https://example.com/users/">
+    </div>
+    <div class="mb-2 mt-2 input-group">
+      <input class = "btn btn-dark" type="submit" name="submit">
+    </div>
+  </form>
+</div>

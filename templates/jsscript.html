@@ -1,0 +1,22 @@
+<script>
+    function toggleFormAndChangeLabel() {
+        // Get references to the button and the form
+        const showFormButton = document.getElementById('showFormButton');
+        const myForm = document.getElementById('appform');
+
+        // Toggle the form's display property between 'block' and 'none'
+        if (myForm.style.display === 'none') {
+            myForm.style.display = 'block';
+            // Change the button label when showing the form
+            showFormButton.innerText = 'Cancel';
+          // Add the "red-button" class to the button
+            showFormButton.classList.add('btn-danger');
+        } else {
+            myForm.style.display = 'none';
+            // Change the button label when hiding the form
+            showFormButton.innerText = 'Apply Now';
+          // Remove the "red-button" class from the button
+            showFormButton.classList.remove('btn-danger');
+        }
+    }
+</script>

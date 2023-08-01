@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Application Submitted</title>
+    {% include 'bootstrap.html' %}
+  </head>
+  <body>
+    {% include 'nav.html' %}
+    {% include 'banner.html' %}
+    <div class="container">
+      <h1 class="text-center mt-2 mb-4 display-4">Maple Leaf Careers</h1>
+      <p class="lead">Your application for the {{job['title']}} position has been successfully submitted!</p>
+      <h4 class="mb-0">Full Name</h4>
+      <div class="mb-2">
+        {{application['full_name']}}
+      </div>
+      <h4>Email Address</h4>
+      <div class="mb-2">
+        {{application['email_id']}}
+      </div>
+      <h4>Linkedin URL</h4>
+      <div class="mb-2">
+        {{application['linkedin']}}
+      </div>
+      <h4>Education</h4>
+      <div class="mb-2">
+        {{application['education_info']}}
+      </div>
+      <h4>Work Experience</h4>
+      <div class="mb-2">
+        {{application['work_experience']}}
+      </div>
+      <h4>Resume URL</h4>
+      <div class="mb-2">
+        {{application['resume_url']}}
+      </div>
+    </div>
+      {% include 'footer.html' %}
+  </body>
+</html>

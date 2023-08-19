@@ -4,27 +4,27 @@
     <h4 class="mb-3">Application Form</h4>
     <div class="mb-2 input-group">
       <span class="input-group-text">Full Name</span>
-      <input class="form-control" type="text" name="full_name" placeholder="Bruce Wayne">
+      <input class="form-control" type="text" name="full_name" placeholder="Bruce Wayne" maxlength="250" required>
     </div>
     <div class="mb-2 input-group">
-      <span class="input-group-text">Email Address</span>
-      <input class="form-control" type="text" name="email" placeholder="bruce.wayne@mail.com">
+      <span class="input-group-text" for="email">Email Address</span>
+      <input class="form-control" type="email" name="email" placeholder="bruce.wayne@mail.com" maxlength="250" required>
     </div>
     <div class="mb-2 input-group">
-      <span class="input-group-text">Linkedin URL</span>
-      <input class="form-control" type="text" name="linkedin_url" placeholder="linkedin.com/in/brucewayne">
+      <span class="input-group-text" for="url">Linkedin URL</span>
+      <input class="form-control" type="text" name="linkedin_url" placeholder="linkedin.com/in/brucewayne" pattern="https://.*">
     </div>
     <div class="mb-2 input-group">
      <span class="input-group-text">Education</span>
-     <textarea class="form-control" name="education"></textarea>
+     <textarea class="form-control" name="education" minlength="100" maxlength="2000" required></textarea>
     </div>
     <div class="mb-2 mt-2 input-group">
       <span class="input-group-text">Work Experience</span>
-      <textarea class="form-control" name="work_experience"></textarea>
+      <textarea class="form-control" minlength="100" maxlength="2000" name="work_experience" required></textarea>
     </div>
     <div class="mb-2 input-group">
-      <span class="input-group-text">Resume URL</span>
-      <input class="form-control" type="text" name="resume_url" placeholder="https://example.com/users/">
+      <span class="input-group-text" for="url">Resume URL</span>
+      <input class="form-control" type="text" name="resume_url" placeholder="https://example.com/users/" pattern="https://.*">
     </div>
     <div class="mb-2 mt-2 input-group">
       <input class = "btn btn-dark" type="submit" name="submit">

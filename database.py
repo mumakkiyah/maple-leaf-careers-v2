@@ -9,16 +9,33 @@ engine = create_engine(connection_string,
                          "ssl_ca": "/etc/ssl/cert.pem"
                        }})
 
-
 #store the database objects into a dict
 #_mapping is to extract the data for each row as a dictionary and append it to the result_dicts[]
-def load_jobs_from_db():
+#def load_jobs_from_db():
+#with engine.connect() as conn:
+#result = conn.execute(text("select * from jobs"))
+#jobs = []
+#for row in result.all():
+#jobs.append(dict(row._mapping))
+#return (jobs)
+
+
+#load jobs for the page and search
+def load_jobs_from_db(search_query=None):
   with engine.connect() as conn:
-    result = conn.execute(text("select * from jobs"))
+    if search_query:
+      # Use named placeholders in the SQL query and sanitize the input
+      sql = text(
+        "SELECT * FROM jobs WHERE title LIKE :query OR location LIKE :query")
+      parameters = {"query": f"%{search_query}%"}
+      result = conn.execute(sql, parameters)
+    else:
+      result = conn.execute(text("SELECT * FROM jobs"))
+
     jobs = []
     for row in result.all():
       jobs.append(dict(row._mapping))
-    return (jobs)
+    return jobs
 
 
 # :val is string formatting in sqlalchemy to specify something that needs to be filled in and it comes from te URL in the path in app.py when user clicks to view

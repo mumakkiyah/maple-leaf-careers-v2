@@ -2,16 +2,30 @@
 from flask import Flask, render_template, jsonify, request
 from database import load_jobs_from_db, load_job_from_db, add_application_to_db
 
+
 # app is an object of the Flask class. Importing functionality from the module
 app = Flask(__name__)
 
-
 # path after the / in the domain name
 # pass in the name of the main page to render
+#@app.route("/")
+#def maple_leaf_index():
+#jobs = load_jobs_from_db()
+# pass the list of jobs and company into home.html as an argument to be dynamic in home.html using {{}}
+#return render_template('home.html', jobs=jobs)
+
+
+# return the list of jobs in root page and search is a query is passed
 @app.route("/")
 def maple_leaf_index():
-  jobs = load_jobs_from_db()
-  # pass the list of jobs and company into home.html as an argument to be dynamic in home.html using {{}}
+  search_query = request.args.get(
+    "q")  # Get the search query from the URL parameter 'q'
+
+  if search_query:
+    jobs = load_jobs_from_db(search_query)
+  else:
+    jobs = load_jobs_from_db()
+
   return render_template('home.html', jobs=jobs)
 
 
